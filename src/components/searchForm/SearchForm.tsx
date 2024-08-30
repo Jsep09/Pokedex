@@ -1,7 +1,8 @@
 import { generationList, typesList, sortList } from "@/util/optionList";
 import { useSearchForm } from "@/components/searchForm";
 const SearchForm = () => {
-  const { fieldKeyword } = useSearchForm();
+  const { fieldKeyword, fieldGeneration, fieldType, fieldSort } =
+    useSearchForm();
   return (
     <div className="grid grid-cols-4 gap-x-[20px]">
       <div>
@@ -10,6 +11,7 @@ const SearchForm = () => {
             Generation
           </label>
           <select
+            {...fieldGeneration}
             id="generation"
             className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-200 white:text-black dark:text-gray-100 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
           >
@@ -33,6 +35,7 @@ const SearchForm = () => {
             Generation
           </label>
           <select
+            {...fieldType}
             id="type"
             className="capitalize block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-200 white:text-black dark:text-gray-100 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
           >
@@ -52,10 +55,11 @@ const SearchForm = () => {
             Sort
           </label>
           <select
+            {...fieldSort}
             id="Sort"
             className=" capitalize block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-200 white:text-black dark:text-gray-100 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
           >
-            <option selected>Sort</option>
+            <option value={"Sort"}>Sort</option>
             {sortList.map((item, index) => {
               return (
                 <option key={`generation-key-${index}`} value={item}>

@@ -7,9 +7,9 @@ interface PokemonCardProps {
   id: number;
   types: Type[];
 }
-const PokemonCard = ({ image, name, id, types }: PokemonCardProps) => {
+const PokemonCard = ({ image, name, types }: PokemonCardProps) => {
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-110 transition-all duration-300">
       <Link to={`/detail/${name}`}>
         <img
           className="rounded-t-lg h-[218px] w-full p-[20px]"
@@ -25,6 +25,7 @@ const PokemonCard = ({ image, name, id, types }: PokemonCardProps) => {
           {types.map((item) => {
             return (
               <span
+                key={item.type.name}
                 className={`badge-type-${item.type.name} px-2 py-1 rounded-[5px]`}
               >
                 {item.type.name}
